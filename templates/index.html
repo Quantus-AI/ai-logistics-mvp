@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>AI Logistics MVP – v3</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>AI Logistics MVP – Route Optimizer (v3)</h1>
+    <form action="/upload" method="post" enctype="multipart/form-data">
+      <div class="grid">
+        <label>Depot Latitude <input type="number" step="any" name="depot_lat" value="51.5072" required></label>
+        <label>Depot Longitude <input type="number" step="any" name="depot_lng" value="-0.1276" required></label>
+        <label>Vehicle Count <input type="number" name="vehicle_count" min="1" value="2" required></label>
+        <label>Vehicle Capacity <input type="number" name="vehicle_capacity" min="1" value="5" required></label>
+        <label>Depot Window Start <input type="text" name="depot_tw_start" value="08:00"></label>
+        <label>Depot Window End <input type="text" name="depot_tw_end" value="18:00"></label>
+      </div>
+      <label>CSV of Stops <input type="file" name="file" accept=".csv" required></label>
+      <button type="submit">Optimize Routes</button>
+    </form>
+    <p>Sample file: <code>data/sample_deliveries.csv</code></p>
+    <p><a href="/docs" target="_blank">Open API Docs</a></p>
+  </div>
+</body>
+</html>

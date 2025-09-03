@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Optimisation Results</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <h1>Optimisation Results</h1>
+
+    {% if result %}
+        <h2>Summary</h2>
+        <p><b>Engine Used:</b> {{ result.engine }}</p>
+        <p><b>Optimised Distance:</b> {{ result.total_miles }} miles</p>
+        <p><b>Baseline Distance (input order):</b> {{ result.baseline_miles }} miles</p>
+        <p><b>Distance Saved:</b> {{ result.savings_pct }} %</p>
+
+        <h2>Routes</h2>
+        {% for route in result.routes %}
+            <div class="route-block">
+                <h3>Vehicle {{ loop.index }}</h3>
+                <ul>
+                    {% for stop in route %}
+                        <li>{{ stop.name or stop.id }} (Lat: {{ stop.lat }}, Lng: {{ stop.lng }}, Demand: {{ stop.demand }})</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        {% endfor %}
+
+        <h2>Visualisation</h2>
+        <p><a href="/map" target="_blank">View Route Map</a></p>
+
+        <h2>Export</h2>
+        <p><a href="/download">Download Results (Excel)</a></p>
+
+    {% else %}
+        <p>No results found. Please upload a file or run optimisation first.</p>
+    {% endif %}
+</body>
+</html>
