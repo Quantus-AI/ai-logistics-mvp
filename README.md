@@ -66,6 +66,7 @@ Run run.bat
 App runs at [localhost:8000](http://localhost:8000)
 
 ## 📂 Repo Structure
+```
 ai-logistics-mvp/
 ├── app/
 │   ├── main.py           # FastAPI routes
@@ -77,13 +78,14 @@ ai-logistics-mvp/
 ├── setup.bat             # Windows setup script
 ├── run.bat               # Windows run script
 └── requirements.txt      # Python dependencies
-
+```
 ## 🧪 Example CSV Format
+```
 id,lat,lng,name,demand,tw_start,tw_end
 1,51.5074,-0.1278,Stop A,2,08:00,18:00
 2,51.5155,-0.1420,Stop B,1,09:00,17:00
 ...
-
+```
 ## 📜 License
 © 2025 Quantus AI Limited. All rights reserved.
 This code is proprietary and may not be used without permission.
